@@ -1,0 +1,145 @@
+.portfolio__links{
+    display: grid;
+grid-template-columns: 1fr 30px;
+grid-template-rows: repeat(3, 1fr);
+
+grid-row-gap: 40px;
+margin-left: 70px;
+margin-right: 70px;
+align-items: center;
+}
+@media screen and (max-width: 1024px) {
+    .portfolio__links{
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+  }
+.portfolio__link{
+    margin: 0;
+    color: #000;
+font-family: Inter;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: 50px;
+letter-spacing: -1.2px;
+
+}
+@media screen and (max-width: 1024px) {
+    .portfolio__link{
+        font-size: 28px;
+    }
+  }
+.portfolio__link-button{
+    color: #000;
+font-family: Inter;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: 60px;
+letter-spacing: -1.2px;
+
+}
+.portfolio__about{
+    display: flex;
+    margin: 66px 70px 100px 70px;
+   
+    justify-content: space-between;
+
+}
+@media screen and (max-width: 1024px) {
+    .portfolio__about{
+      margin-left: 50px;
+      margin-right: 50px;
+
+    }
+  }
+  @media screen and (max-width: 620px) {
+    .portfolio__about{
+      flex-direction: column-reverse;
+
+    }
+  }
+.portfolio__column{
+    max-width: 600px;
+    padding-right: 49px;
+}
+@media screen and (max-width: 620px) {
+    .portfolio__column{
+        padding-right: 0;
+
+    }
+  }
+.portfolio__links-header{
+    margin: 0;
+    margin-bottom: 50px;
+    margin-left: 70px;
+    color: #A0A0A0;
+font-family: Inter;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px;
+}
+@media screen and (max-width: 1024px) {
+    .portfolio__links-header{
+      margin-left: 50px;
+      margin-right: 50px;
+
+    }
+  }
+.portfolio__name{
+    margin: 0;
+    color: #000;
+font-family: Inter;
+font-size: 50px;
+font-style: normal;
+font-weight: 400;
+line-height: 58px; /* 116% */
+letter-spacing: -2px;
+}
+.portfolio__job{
+    margin-top: 18px;
+    margin-bottom: 26px;
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+.portfolio__paragraph{
+    margin: 0;
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+.portfolio__git{
+    margin: 0;
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 99px;
+}
+.portfolio__picture{
+    max-width: 270px;
+    min-height: 327px;
+}
+@media screen and (max-width: 1024px) {
+    .portfolio__picture{
+        max-width: 255px;
+        min-height: 307px;
+    }
+}
+@media screen and (max-width: 620px) {
+    .portfolio__picture{
+        margin: auto;
+
+    }
+  }

@@ -1,0 +1,26 @@
+.landing-header{
+    margin: 0;
+    margin-left: 70px;
+    margin-right: 70px;
+    border-bottom: 1px solid black;
+    color: #000;
+font-family: Inter;
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: -0.88px;
+padding-bottom: 23px;
+}
+@media screen and (max-width: 1024px) {
+    .landing-header{
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+  }
+  @media screen and (max-width: 620px) {
+    .landing-header{
+      margin-left: 18px;
+      margin-right: 18px;
+    }
+  }
