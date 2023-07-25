@@ -4,14 +4,17 @@ grid-template-columns: 1fr 30px;
 grid-template-rows: repeat(3, 1fr);
 
 grid-row-gap: 40px;
-margin-left: 70px;
-margin-right: 70px;
+
 align-items: center;
 }
 @media screen and (max-width: 1024px) {
     .portfolio__links{
-      margin-left: 50px;
-      margin-right: 50px;
+
+    }
+  }
+  @media screen and (max-width: 620px) {
+    .portfolio__links{
+
     }
   }
 .portfolio__link{
@@ -30,6 +33,16 @@ letter-spacing: -1.2px;
         font-size: 28px;
     }
   }
+  @media screen and (max-width: 620px) {
+    .portfolio__link{
+        font-size: 23px;
+    }
+  }
+  @media screen and (max-width: 320px) {
+    .portfolio__link{
+        font-size: 18px;
+    }
+  }
 .portfolio__link-button{
     color: #000;
 font-family: Inter;
@@ -42,15 +55,15 @@ letter-spacing: -1.2px;
 }
 .portfolio__about{
     display: flex;
-    margin: 66px 70px 100px 70px;
-   
+
+   margin-top: 66px;
+   margin-bottom: 100px;
     justify-content: space-between;
 
 }
 @media screen and (max-width: 1024px) {
     .portfolio__about{
-      margin-left: 50px;
-      margin-right: 50px;
+
 
     }
   }
@@ -73,9 +86,9 @@ letter-spacing: -1.2px;
 .portfolio__links-header{
     margin: 0;
     margin-bottom: 50px;
-    margin-left: 70px;
+
     color: #A0A0A0;
-font-family: Inter;
+    font-family: Inter;
 font-size: 18px;
 font-style: normal;
 font-weight: 400;
@@ -83,8 +96,19 @@ line-height: 20px;
 }
 @media screen and (max-width: 1024px) {
     .portfolio__links-header{
-      margin-left: 50px;
-      margin-right: 50px;
+
+
+    }
+  }
+  @media screen and (max-width: 620px) {
+    .portfolio__links-header{
+
+
+    }
+  }
+  @media screen and (max-width: 320px) {
+    .portfolio__links-header{
+      font-size: 18px;
 
     }
   }
@@ -140,6 +164,8 @@ letter-spacing: -2px;
 @media screen and (max-width: 620px) {
     .portfolio__picture{
         margin: auto;
-
+        width: 292px;
+height: 352px;
+margin-bottom: 40px;
     }
   }

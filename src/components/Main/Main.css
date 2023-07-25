@@ -1,0 +1,23 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:auto;
+    max-width: 1280px;
+    min-height: 100vh;
+    border: 1px solid blue;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  @media screen and (max-width: 1024px) {
+    .main{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+  }
+  @media screen and (max-width: 620px) {
+    .main{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+  }
