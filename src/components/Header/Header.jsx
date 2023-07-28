@@ -1,23 +1,36 @@
 import React from "react";
 import headerLogo from "../../images/logo.svg";
-import accountIcon from "../../images/account_icon.svg";
+
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import { Link, Routes, Route } from "react-router-dom";
 
-function Header({ email, onLogout }) {
+function Header({loggedIn}) {
+  const headerColorClass = (`header ${loggedIn ? 'header_loggedIn' : 'header'}`);
   return (
-    <header className="header">
+    <header className={headerColorClass}>
       <img className="header__logo" src={headerLogo} alt="Логотип" />
-      <Routes>
+      <Navigation loggedIn={loggedIn} />
+      {/* <Routes>
         <Route path="/" element={
-            <div className="header__button-container">
-              <Link to="/signup" className="header__button">Регистрация</Link>
-              <Link to="/signin" className="header__button header__button-active">Войти</Link>
+            <div className="header__container">
+              <Link to="/signup" className="header__button link">Регистрация</Link>
+              <Link to="/signin" className="header__button header__button-active link">Войти</Link>
             </div>
           }
         ></Route>
         <Route path="/movies" element={
+          <div className='header__container'>
+            <Navigation/>
+            <div className="header__button-container">
+              <Link to="/profile" className="header__button link">Аккаунт</Link>
+              <img className="header__account-icon" src={accountIcon} alt="#"></img>
+            </div>
+          </div>
+          
+          }
+        ></Route>
+        <Route path="/profile" element={
           <div className='header__container'>
             <Navigation/>
             <div className="header__button-container">
@@ -28,7 +41,7 @@ function Header({ email, onLogout }) {
           
           }
         ></Route>
-      </Routes>
+      </Routes> */}
     </header>
   );
 }

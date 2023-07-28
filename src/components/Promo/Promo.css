@@ -1,26 +1,31 @@
 .promo{
     background: #DDDEE3;
-    width: 100%;
+    width: calc(100% + 140px);
     min-height: 524px;
     display: flex;
 
     justify-items: end;
     justify-content: space-between;
-    padding: 75px 70px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    
 
 }
 @media screen and (max-width: 1024px) {
     .promo{
-        padding-left: 50px;
-        padding-right: 50px;
+        width: calc(100% + 100px);
         flex-direction: column-reverse;
         align-items: center;
     }
 }
+@media screen and (max-width: 620px) {
+    .promo{
+        width: calc(100% + 20px);
+    }
+}
 @media screen and (max-width: 320px) {
     .promo{
-        padding-left: 10px;
-        padding-right: 10px;
+        
         padding-bottom: 30px;
     padding-top: 70px;
     }
@@ -41,10 +46,6 @@ max-width: 640px;
         text-align: center;
         font-size: 40px;
         line-height: 50px;
-       /*  margin-top: 48px;
-        margin-bottom: 22px;
-        margin-left: 10px;
-        margin-right: 10px; */
         margin: 48px 10px 22px 10px;
     }
 }
@@ -55,12 +56,12 @@ max-width: 640px;
         line-height: 38px;
         margin-top: 44px;
         margin-bottom: 24px;
+        letter-spacing: -1.2px;
     }
 }
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 320px) {
     .promo__text{
-        margin-left: 0;
-        margin-right: 0;
+       
     }
 }
 .promo__paragraph{
@@ -85,19 +86,27 @@ margin-bottom: 146px;
     max-width: 310px;
     min-height: 304px;
     object-fit: contain;
-
+    
+    margin-right: 70px;
 }
-
+@media screen and (max-width: 1024px) {
+    .promo__picture{
+        
+        margin-right: 10px;
+    }
+}
 @media screen and (max-width: 360px) {
     .promo__picture{
         max-width: 210px;
-    min-height: 206px;
+        min-height: 206px;
+       
     }
 }
 .promo__group{
 display: flex;
 flex-direction: column;
 width: 100%;
+margin-left: 70px;
 
 }
 
@@ -105,6 +114,13 @@ width: 100%;
     .promo__group{
         align-items: center;
         padding-left: 0;
+        margin-left: 10px;
         
+        
+    }
+}
+@media screen and (max-width: 320px) {
+    .promo__group{
+        margin-left: 0;     
     }
 }

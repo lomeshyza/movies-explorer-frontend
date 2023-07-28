@@ -1,9 +1,11 @@
-import './NavTab.css';
+import "./NavTab.css";
 
-function NavTab({}) {
-    return (
-          <button className="navtab__button">Узнать больше</button>
-    );
-  }
-  
-  export default NavTab;
+function NavTab() {
+  return (
+    <nav>
+      <a href="#about" className="navtab__button link">Узнать больше</a>
+    </nav>
+  );
+}
+
+export default NavTab;

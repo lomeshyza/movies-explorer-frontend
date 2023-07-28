@@ -3,12 +3,12 @@ import "../Landing/Landing.css";
 import LandingHeader from "../LandingHeader/LandingHeader";
 
 
-function AboutProject({}) {
+function AboutProject() {
   return (
-    <div className="landing__container">
+    <section className="landing__container" id='about' >
       
-        <LandingHeader LandingHeaderText={"О проекте"} />
-        <div className="about-project__container">
+        <LandingHeader LandingHeaderText={"О проекте"}/>
+        <div className="about-project__container" >
           <div className="about-project__column">
             <h2 className="about-project__text">
               Дипломный проект включал 5 этапов
@@ -37,7 +37,7 @@ function AboutProject({}) {
           </div>
         
       </div>
-    </div>
+    </section>
   );
 }
 
