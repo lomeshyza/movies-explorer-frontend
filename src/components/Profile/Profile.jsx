@@ -1,35 +1,39 @@
 import '../Profile/Profile.css';
 import Header from "../Header/Header";
+
 import { Link } from "react-router-dom";
 
-function Profile({formTitle,buttonTitle,formText,formLink,formLinkText,onLogout}) {
+function Profile({formTitle,buttonTitle,formLink,formLinkText,onLogout, loggedIn}) {
   
   return (
-    <><Header/>
+    <>
+    <Header loggedIn={loggedIn}/>
     <div className="profile">
           
-          <div className="form">
-<div className="form__container">
-    <h2 className="form__header">{formTitle}</h2>
-    <form type="submit" className="form__form">
-    <label className="form__field-name">Имя
-            <input className="form__input" placeholder="Имя"></input>
-            <span className="form__input-error">err</span>
-        </label>
-        <label className="form__field-name">E-mail
-            <input className="form__input" placeholder="E-mail"></input>
-            <span className="form__input-error">err</span>
-        </label>
-        <button className="form__button form__button-profile" type='submit' onClick={onLogout}>{buttonTitle}</button>
+<div className="profile__container">
+    <h2 className="profile__header">{formTitle}</h2>
+    <form type="submit" className="profile__form">
+      <fieldset className='profile__fieldset'>
+      <div className='profile__form-container'>
+        <label className="profile__field-name">Имя</label>
+        <input className="profile__input" placeholder="Имя" value="Виталий" type="text" minLength="2" maxLength="30" required></input>
+      </div>
+      
+      <div className='profile__form-container'>
+        <label className="profile__field-name">E-mail</label>
+        <input className="profile__input" placeholder="E-mail" value="mail@yandex.ru" type="email" minLength="2" maxLength="30" required></input>
+        
+      </div>
+      </fieldset>
+           
+      <button className="button profile__button" type='submit' onClick={onLogout}>{buttonTitle}</button>
         
     </form>
-    <p className="form__text">{formText}
-    <Link className='form__link' to={formLink}>{formLinkText}</Link>
-    </p>
+    <Link className='form__link link' to={formLink}>{formLinkText}</Link>
     </div>
 </div>
 
-        </div>
+      
     </>
         
   );

@@ -1,5 +1,5 @@
 import './Promo.css';
-import promoPicture from "../../images/planet.png"; 
+import promoPicture from "../../images/planet.svg"; 
 import NavTab from '../NavTab/NavTab';
 
 

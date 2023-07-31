@@ -4,14 +4,19 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Footer from '../Footer/Footer';
 
-function Movies({loggedIn}) {
+function Movies({loggedIn, cards}) {
   return (
-        <div className="movies">
-          <Header loggedIn={loggedIn}/>
+    <>
+    <Header loggedIn={loggedIn}/>
+    <div className="movies">
+          
           <SearchForm/>
-          <MoviesCardList/>
+          <MoviesCardList cards={cards}/>
           <Footer/>
         </div>
+        
+    </>
+        
   );
 }
 

@@ -5,7 +5,10 @@ function SearchForm() {
   return (
 <div className="searchForm">
     <form type="submit" className="searchForm__form">
-        <input className="searchForm__input" placeholder="Фильм">
+        <input className="searchForm__input" placeholder="Фильм" type='text'
+          minLength="2"
+          maxLength="40"
+          required>
             
         </input>
         <button className="searchForm__button" type='submit'>Найти</button>

@@ -3,16 +3,11 @@
   min-height: 74px;
   background-color: #dddee3;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  /*     padding-left: 70px;
-    padding-right: 70px; */
 }
 .header_loggedIn{
-  max-width: 1280px;
-  min-height: 74px;
   background-color:white;
-  display: flex;
-  justify-content: space-between;
 }
 @media screen and (max-width: 1024px) {
   .header {
@@ -21,8 +16,6 @@
 }
 @media screen and (max-width: 768px) {
   .header {
-    /* padding-left: 30px;
-        padding-right: 30px; */
         max-width: 768px;
   }
 }
@@ -44,6 +37,57 @@
     margin-left: 14px;
   }
 }
+
+.menu__button{
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .menu__button{
+    background-image: url(../../images/burger_menu.svg);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background-color: white;
+    margin-right: 15px;
+    
+  }
+}
+@media screen and (max-width: 320px) {
+  .menu__button{
+    width: 40px;
+    height: 43px;
+       
+  }
+}
+/* NAV */
+
+.header__links-container{
+  display: flex;
+  
+}
+@media screen and (max-width: 768px) {
+  .header__links-container {
+    display: none;
+  }
+}
+.header__link{
+  color: #000;
+  text-align: right;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  margin-left: 16px;
+}
+.header__link_active{
+  font-weight: 500;
+}
 .header__container {
   margin-right: 70px;
   margin-top: 21px;
@@ -54,11 +98,7 @@
     margin-right: 30px;
   }
 }
-@media screen and (max-width: 320px) {
-  .header__container {
-    margin-right: 14px;
-  }
-}
+
 .header__button {
   color: #000;
   text-align: right;
@@ -67,14 +107,9 @@
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
-  background: #dddee3;
   border-style: none;
 }
-@media screen and (max-width: 320px) {
-  .header__button {
-    font-size: 10px;
-  }
-}
+
 .header__button-active {
   width: 76px;
   height: 32px;
@@ -92,16 +127,26 @@
   align-items: center;
   justify-content: center;
 }
-@media screen and (max-width: 320px) {
-  .header__button-active {
-    margin-left: 14px;
-  }
-}
-.header__account-icon {
-  width: 10.383px;
-  height: 10.669px;
-}
+
 .header__container {
   display: flex;
   align-items: center;
+}
+.header__account-icon{
+  margin-left: 13px;
+  width: 10.4px;
+  height: 10.7px;
+}
+.header__button-container {
+  margin-right: 70px;
+}
+@media screen and (max-width: 1024px) {
+  .header__button-container {
+    margin-right: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header__button-container {
+    display: none;
+  }
 }
