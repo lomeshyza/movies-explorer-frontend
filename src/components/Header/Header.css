@@ -6,8 +6,8 @@
   align-items: center;
   justify-content: space-between;
 }
-.header_loggedIn{
-  background-color:white;
+.header_loggedIn {
+  background-color: white;
 }
 @media screen and (max-width: 1024px) {
   .header {
@@ -16,7 +16,7 @@
 }
 @media screen and (max-width: 768px) {
   .header {
-        max-width: 768px;
+    max-width: 768px;
   }
 }
 
@@ -37,12 +37,11 @@
     margin-left: 14px;
   }
 }
-
-.menu__button{
+.menu__button {
   display: none;
 }
 @media screen and (max-width: 768px) {
-  .menu__button{
+  .menu__button {
     background-image: url(../../images/burger_menu.svg);
     width: 44px;
     height: 44px;
@@ -54,29 +53,27 @@
     padding: 0;
     cursor: pointer;
     background-color: white;
-    margin-right: 15px;
-    
+    margin-right: 31px;
   }
 }
 @media screen and (max-width: 320px) {
-  .menu__button{
+  .menu__button {
     width: 40px;
     height: 43px;
-       
+    margin-right: 15px;
   }
 }
 /* NAV */
 
-.header__links-container{
-  display: flex;
-  
+.header__links-container {
+  margin-left: 42px;
 }
 @media screen and (max-width: 768px) {
   .header__links-container {
     display: none;
   }
 }
-.header__link{
+.header__link {
   color: #000;
   text-align: right;
   font-size: 13px;
@@ -85,60 +82,68 @@
   line-height: 18px;
   margin-left: 16px;
 }
-.header__link_active{
+.header__link_active {
   font-weight: 500;
 }
+
 .header__container {
-  margin-right: 70px;
+  margin-right: 80px;
   margin-top: 21px;
   margin-bottom: 21px;
+  display: flex;
+  align-items: center;
 }
 @media screen and (max-width: 1024px) {
   .header__container {
     margin-right: 30px;
   }
 }
-
+@media screen and (max-width: 320px) {
+  .header__container {
+    margin-right: 15px;
+  }
+}
 .header__button {
   color: #000;
   text-align: right;
-  font-family: Inter;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
   border-style: none;
 }
-
+@media screen and (max-width: 320px) {
+  .header__button {
+    font-size: 10px;
+  }
+}
 .header__button-active {
   width: 76px;
   height: 32px;
   border-radius: 3px;
   background: #3456f3;
   color: #fff;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 16px;
   display: flex;
   margin-left: 30px;
-
   align-items: center;
   justify-content: center;
 }
-
-.header__container {
-  display: flex;
-  align-items: center;
+@media screen and (max-width: 320px) {
+  .header__button-active {
+    width: 54px;
+    height: 26px;
+    margin-left: 15px;
+  }
 }
-.header__account-icon{
-  margin-left: 13px;
+.header__account-icon {
+  margin-left: 22px;
   width: 10.4px;
   height: 10.7px;
 }
 .header__button-container {
-  margin-right: 70px;
+  margin-right: 80px;
+  display: flex;
+  align-items: center;
 }
 @media screen and (max-width: 1024px) {
   .header__button-container {

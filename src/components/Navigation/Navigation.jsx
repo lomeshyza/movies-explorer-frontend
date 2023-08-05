@@ -9,27 +9,29 @@ function Navigation({ handleClose }) {
     `link navigation__link ${isActive ? "navigation__link_active" : ""}`;
   return (
     <>
-    <nav className="navigation__links-container">
-    <button className="navigation__close-button" onClick={handleClose}/>
-      <NavLink to='/' className={activeLinkClass} >Главная</NavLink>
-      <NavLink to="/movies" className={activeLinkClass}>
-        Фильмы
-      </NavLink>
-      <NavLink to="/saved-movies" className={activeLinkClass}>
-        Сохранённые фильмы
-      </NavLink>
-    </nav>
-    <nav className="navigation__button-container">
-      <Link to="/profile" className="navigation__button link">
-        Аккаунт
+      <nav className="navigation__links-container">
+        <button className="navigation__close-button" onClick={handleClose} />
+        <NavLink to="/" className={activeLinkClass}>
+          Главная
+        </NavLink>
+        <NavLink to="/movies" className={activeLinkClass}>
+          Фильмы
+        </NavLink>
+        <NavLink to="/saved-movies" className={activeLinkClass}>
+          Сохранённые фильмы
+        </NavLink>
+      </nav>
+      <Link to="/profile" className="navigation__link link">
+        <nav className="navigation__button-container">
+          <p className="navigation__button">Аккаунт</p>
+          <img
+            className="navigation__account-icon"
+            src={accountIcon}
+            alt="иконка аккаунта"
+          ></img>
+        </nav>
       </Link>
-      <img
-        className="navigation__account-icon"
-        src={accountIcon}
-        alt="#"
-      ></img>
-    </nav>
-  </> 
+    </>
   );
 }
 

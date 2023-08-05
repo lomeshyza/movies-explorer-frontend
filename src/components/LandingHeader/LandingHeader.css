@@ -1,12 +1,18 @@
-.landing-header{
-    margin: 0;
-    border-bottom: 1px solid black;
-    color: #000;
-font-family: Inter;
-font-size: 22px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-letter-spacing: -0.88px;
-padding-bottom: 23px;
+.landing-header {
+  margin: 0;
+  border-bottom: 1px solid black;
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  padding-bottom: 23px;
 }
+@media screen and (max-width: 320px) {
+    .landing-header {
+        font-size: 18px;
+        max-width: 285px;
+        padding-bottom: 28px;
+    }
+  }

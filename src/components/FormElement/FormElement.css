@@ -1,96 +1,133 @@
-.form{
-    display: flex;
-    max-width: 1280px;
-    min-height: 100vh;
-    justify-content: center;
-    align-items: center;
+.form {
+  display: flex;
+  max-width: 1280px;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
-.form__form{
-    display: flex;
-    flex-direction: column;
+.form__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70%;
 }
-.form__header{
-    margin-top: 40px;
-    margin-bottom: 40px;
+@media screen and (max-width: 320px) {
+  .form__form {
+    height: 68%;
+    width: 100%;
+  }
 }
-.form__container{
-    width: 396px;
+.form__header {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+}
+@media screen and (max-width: 320px) {
+  .form__header {
+    margin-top: 50px;
+    margin-bottom: 80px;
+  }
+}
+.form__container {
+  width: 396px;
+  height: 562px;
 }
 @media screen and (max-width: 425px) {
-    .form__container {
-        width: 260px;
-        display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
-}
-.form__button{
-    margin-top: 59px;
-    margin-bottom: 16px;
-    border-radius: 3px;
-background: #3456F3;
-height: 45px;
-flex-shrink: 0;
-color: #FFF;
-text-align: center;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-border: none;
-}
-.form__text{
-    text-align: center;
-    color: #A0A0A0;
-text-align: center;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-.form__link{
-    color: #3456F3;
-text-align: center;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-margin-left: 6px;
-}
-.form__field-name{
+  .form__container {
+    width: 260px;
     display: flex;
     flex-direction: column;
-    
-    color: #A0A0A0;
-font-family: Inter;
-font-size: 10px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 320px) {
+  .form__container {
+    margin-top: 43px;
+    min-height: 714px;
+  }
+}
+.form__button {
+  margin-top: 75px;
+  margin-bottom: 16px;
+  border-radius: 3px;
+  background: #3456f3;
+  height: 45px;
+  flex-shrink: 0;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: none;
+}
+.form__text {
+  text-align: center;
+  color: #a0a0a0;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+@media screen and (max-width: 320px) {
+  .form__text {
+    font-size: 12px;
+  }
+}
+.form__link {
+  color: #3456f3;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 6px;
+}
+@media screen and (max-width: 320px) {
+  .form__link {
+    font-size: 12px;
+  }
+}
+.form__field-name {
+  display: flex;
+  flex-direction: column;
+  color: #a0a0a0;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.form__input {
+  padding: 0;
+  height: 46px;
+  padding-left: 15px;
+  border-radius: 8px;
+  background: #f4f4f4;
+  color: #000;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  outline: none;
+}
+.form__input-error {
+  color: #ee3465;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 
-}
-.form__input{
-    padding:0;
-    height: 46px;
-    padding-left:15px;
-    border-radius: 8px;
-background: #F4F4F4;
-color: #000;
-font-size: 13px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-border:none;
-margin-top: 10px;
-margin-bottom: 10px;
-outline:none;
-}
-.form__input-error{
-    /* margin-bottom: 10px; */
-    color: #EE3465;
-font-size: 10px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+@media screen and (max-width: 320px) {
+  .form__input-container {
+    width: 100%;
+  }
 }

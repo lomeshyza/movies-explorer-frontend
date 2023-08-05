@@ -1,14 +1,24 @@
 .about {
   display: flex;
-
   margin-top: 66px;
   margin-bottom: 100px;
   justify-content: space-between;
 }
-
+@media screen and (max-width: 768px) {
+  .about {
+    align-items: flex-start;
+    margin-bottom: 90px;
+  }
+}
 @media screen and (max-width: 620px) {
   .about {
     flex-direction: column-reverse;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about {
+    margin: 0;
   }
 }
 .about__column {
@@ -27,32 +37,66 @@
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
-  line-height: 58px; /* 116% */
+  line-height: 58px;
   letter-spacing: -2px;
+}
+@media screen and (max-width: 768px) {
+  .about__name {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .about__name {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+  }
 }
 .about__job {
   margin-top: 18px;
   margin-bottom: 26px;
   color: #000;
-  font-family: Inter;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
 }
+@media screen and (max-width: 768px) {
+  .about__job {
+    font-size: 12px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .about__job {
+    font-size: 11px;
+    line-height: 16px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+  }
+}
 .about__paragraph {
   margin: 0;
   color: #000;
-  font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
 }
+@media screen and (max-width: 768px) {
+  .about__paragraph {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .about__paragraph {
+    font-size: 11px;
+    line-height: 16px;
+  }
+}
 .about__git {
   margin: 0;
   color: #000;
-  font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -60,9 +104,20 @@
   margin-top: 99px;
   display: block;
 }
+@media screen and (max-width: 768px) {
+  .about__git {
+    margin-top: 62px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .about__git {
+    margin-top: 40px;
+  }
+}
 .about__picture {
   max-width: 270px;
   min-height: 327px;
+  margin-top: 60px;
 }
 @media screen and (max-width: 1024px) {
   .about__picture {
@@ -76,5 +131,14 @@
     width: 292px;
     height: 352px;
     margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .about__picture {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 292px;
+    margin-bottom: 30px;
+    margin-top: 60px;
   }
 }

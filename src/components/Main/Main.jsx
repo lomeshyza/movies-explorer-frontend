@@ -12,7 +12,6 @@ function Main({loggedIn}) {
     <>
     <Header loggedIn={loggedIn}/>
     <div className="main">
-      
       <Promo/>
       <AboutProject/>
       <Techs/>
@@ -20,7 +19,6 @@ function Main({loggedIn}) {
       <Footer/>
     </div>
     </>
-    
   );
 }
 

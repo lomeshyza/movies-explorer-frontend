@@ -1,6 +1,19 @@
 .landing__container {
     width: 100%;
-    padding-top: 75px;
+    padding-top: 38px;
     padding-bottom: 75px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
+
+  @media screen and (max-width: 768px) {
+    .landing__container{
+      padding-top: 90px;
+      padding-bottom: 14px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .landing__container{
+    padding:70px 0px;
+    max-width: 100%;
+}
+}

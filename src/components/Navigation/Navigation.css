@@ -1,124 +1,62 @@
-/* .navigation__links-container{
-    display: flex;
-    
-}
-.navigation__link{
-    color: #000;
-    text-align: right;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-    margin-left: 16px;
-}
-.navigation__link_active{
-    font-weight: 500;
-}
-.navigation__container {
-    margin-right: 70px;
-    margin-top: 21px;
-    margin-bottom: 21px;
-  }
-  @media screen and (max-width: 1024px) {
-    .navigation__container {
-      margin-right: 30px;
-    }
-  }
-  
-  .navigation__button {
-    color: #000;
-    text-align: right;
-    font-family: Inter;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 16px;
-    border-style: none;
-  }
-
-  .navigation__button-active {
-    width: 76px;
-    height: 32px;
-    border-radius: 3px;
-    background: #3456f3;
-    color: #fff;
-    font-family: Inter;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 16px;
-    display: flex;
-    margin-left: 30px;
-  
-    align-items: center;
-    justify-content: center;
-  }
-
-  .navigation__container {
-    display: flex;
-    align-items: center;
-  }
-  .navigation__account-icon{
-    margin-left: 13px;
-    width: 10.4px;
-    height: 10.7px;
-  }
-  .navigation__button-container {
-
-    margin-right: 70px;
-  }
-  @media screen and (max-width: 1024px) {
-    .navigation__button-container {
-      margin-right: 30px;
-    }
-  } */
-
-  @media screen and (max-width: 768px) {
-  .navigation__links-container{
+@media screen and (max-width: 768px) {
+  .navigation__links-container {
     display: flex;
     flex-direction: column;
-    align-items: center;   
-}
-.navigation__button-container{
-  margin-right: 0;
-}
-.navigation__link{
-  margin-left: 0;
-  margin-top: 28px;
-  font-size: 18px;
+    align-items: center;
   }
-
-.navigation__link_active{
-  border-bottom: 2px solid black;
+  .navigation__button-container {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+  }
+  .navigation__link {
+    margin-left: 0;
+    margin-top: 28px;
+    font-size: 18px;
+    color: black;
+  }
+  @media screen and (max-width: 320px) {
+    .navigation__link {
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+  }
+  .navigation__link_active {
+    border-bottom: 2px solid black;
+  }
+  .navigation__container {
+    margin-right: 14px;
+  }
+  .navigation__button {
+    font-size: 14px;
+  }
+  .navigation__button-active {
+    margin-left: 14px;
+  }
 }
-.navigation__container {
-  margin-right: 14px;
-}
-.navigation__button {
-  font-size: 14px;
-}
-.navigation__button-active {
-  margin-left: 14px;
-}
-}
-.navigation__close-button{
+.navigation__close-button {
   width: 22px;
-height: 22px;
-background-image: url(../../images/close_icon.svg);
-position: absolute;
-right: 22.4px;
-top: 22.4px;
-border: none;
-background-color: white;
-padding: 0;
-margin: 0;
-background-size: contain;
-
+  height: 22px;
+  background-image: url(../../images/close_icon.svg);
+  position: absolute;
+  right: 22.4px;
+  top: 22.4px;
+  border: none;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  background-size: contain;
 }
-
-.navigation__account-icon{
-
-width: 10.383px;
-height: 10.669px;
-margin-left: 22.81px;
+@media screen and (max-width: 320px) {
+  .navigation__close-button {
+    width: 30px;
+    height: 30px;
+    right: 16px;
+    top: 16px;
+  }
+}
+.navigation__account-icon {
+  width: 10.383px;
+  height: 10.669px;
+  margin-left: 22.81px;
 }

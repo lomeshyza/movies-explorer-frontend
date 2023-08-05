@@ -2,10 +2,9 @@ import "./Techs.css";
 import "../Landing/Landing.css";
 import LandingHeader from "../LandingHeader/LandingHeader";
 
-function Techs({}) {
+function Techs() {
   return (
-    <div className="landing__container">
-      
+    <section className="landing__container">
         <LandingHeader LandingHeaderText={"Технологии"} />
         <div className="techs">
             <h2 className="techs__header">7 технологий</h2>
@@ -22,7 +21,7 @@ function Techs({}) {
               <li className="techs__list">mongoDB</li>
             </ul>
       </div>
-    </div>
+    </section>
   );
 }
 

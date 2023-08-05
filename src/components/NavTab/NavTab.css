@@ -1,12 +1,18 @@
-.navtab__button{
-    width: 129px;
-height: 36px;
-color: #000;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 500;
-line-height: 16px;
-background: #DDDEE3;
-
+.navtab__button {
+  width: 129px;
+  height: 36px;
+  background: #dddee3;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.navtab__button-text {
+  color: #000;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
 }

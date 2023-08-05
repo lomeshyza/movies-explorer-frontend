@@ -1,23 +1,10 @@
-/* .menu__button{
-    background-image: url(../../images/burger_menu.svg);
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    background-color: white;
-} */
 .menu{
     position: fixed;
     width: 100vw;
     height: 100vh;
     right:0;
     top:0;
-    z-index: 2;
+    z-index: 4;
 }
 .blur{
     position: fixed;
@@ -42,6 +29,5 @@
 @media screen and (max-width: 320px) {
     .menu__content{
         width: 100%;
-         
     }
   }

@@ -3,12 +3,21 @@
   padding-bottom: 20px;
   padding-top: 79px;
 }
+@media screen and (max-width: 768px) {
+  .footer {
+    padding-top: 143px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer {
+    padding-top: 80px;
+  }
+}
 .footer__header {
   margin: 0;
   margin-bottom: 41px;
   color: #a0a0a0;
   text-align: center;
-  font-family: Inter;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -17,6 +26,7 @@
 @media screen and (max-width: 320px) {
   .footer__header {
     margin-bottom: 52px;
+    font-size: 12px;
   }
 }
 .footer__container {
@@ -42,7 +52,6 @@
 .footer__link {
   margin: 0;
   color: #000;
-  font-family: Inter;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -53,16 +62,17 @@
   .footer__link {
     margin-left: 0;
     margin-bottom: 13px;
+    font-size: 12px;
   }
 }
 .footer__copiright {
   margin: 0;
+  font-size: 13px;
 }
 @media screen and (max-width: 320px) {
   .footer__copiright {
     color: #a0a0a0;
     text-align: center;
-    font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;

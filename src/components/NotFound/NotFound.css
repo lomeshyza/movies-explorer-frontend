@@ -1,47 +1,55 @@
-.notFound{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 @media screen and (max-width: 400px) {
-    .notFound{
-        justify-content: flex-end;
-    }
+  .notFound {
+    justify-content: flex-end;
   }
-.notFound__container{
-  
-    text-align: center;
-    
 }
-.notFound__header{
-    color: #000;
-text-align: center;
-font-family: Inter;
-font-size: 140px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-margin: 0;
-
+.notFound__container {
+  text-align: center;
+}
+.notFound__header {
+  color: #000;
+  font-size: 140px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  margin-top: 244px;
 }
 @media screen and (max-width: 400px) {
-    .notFound__header{
-        font-size: 80px;
-    }
+  .notFound__header {
+    font-size: 80px;
   }
-.notFound__text{
-    font-size: 16px;
-    
 }
-
-.notFound__link{
-    margin-top: 184px;
+@media screen and (max-width: 320px) {
+  .notFound__header {
+    margin-top: 330px;
+  }
+}
+.notFound__text {
+  font-size: 16px;
+  margin: 0;
+}
+@media screen and (max-width: 320px) {
+  .notFound__text {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+}
+.notFound__link {
+  margin-top: 190px;
+  margin-bottom: 60px;
+  color: #3456f3;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
 }
 @media screen and (max-width: 400px) {
-    .notFound__link{
-        margin-bottom: 30px;
-    }
+  .notFound__link {
+    margin-bottom: 30px;
+    font-size: 12px;
   }
+}
