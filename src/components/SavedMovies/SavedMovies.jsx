@@ -8,7 +8,7 @@ function SavedMovies({ loggedIn, cards }) {
   return (
     <>
       <Header loggedIn={loggedIn} />
-      <div className="savedMovies">
+      <main className="savedMovies">
         <SearchForm />
         <div className="moviesCardList">
           <ul className="moviesCardList__list">
@@ -27,8 +27,8 @@ function SavedMovies({ loggedIn, cards }) {
           </ul>
           <div className="moviesCardList__button-container"></div>
         </div>
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </>
   );
 }

@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 
 function Portfolio() {
   return (
-    <section className="landing__container" id="me">
+    <section className="landing" id="me">
       <LandingHeader LandingHeaderText={"Студент"} />
-      <div className="portfolio__container">
+      <div className="portfolio">
         <AboutMe />
         <h2 className="portfolio__links-header">Портфолио</h2>
         <div className="portfolio__links">

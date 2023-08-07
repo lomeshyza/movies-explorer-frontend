@@ -4,10 +4,10 @@ import LandingHeader from "../LandingHeader/LandingHeader";
 
 function Techs() {
   return (
-    <section className="landing__container">
+    <section className="landing">
         <LandingHeader LandingHeaderText={"Технологии"} />
         <div className="techs">
-            <h2 className="techs__header">7 технологий</h2>
+            <h3 className="techs__header">7 технологий</h3>
             <p className="techs__paragraph">
               На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.
             </p>

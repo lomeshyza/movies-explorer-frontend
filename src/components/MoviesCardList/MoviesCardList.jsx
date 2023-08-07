@@ -15,7 +15,7 @@ function MoviesCardList({cards}) {
         ))}
       </ul>
       <div className="moviesCardList__button-container">
-        <button className="moviesCardList__button">Ещё</button>
+        <button className="moviesCardList__button button">Ещё</button>
       </div>
     </div>
   );

@@ -37,11 +37,11 @@
     margin-left: 14px;
   }
 }
-.menu__button {
+.header__burger-menu {
   display: none;
 }
 @media screen and (max-width: 768px) {
-  .menu__button {
+  .header__burger-menu {
     background-image: url(../../images/burger_menu.svg);
     width: 44px;
     height: 44px;
@@ -51,13 +51,12 @@
     margin: 0;
     border: none;
     padding: 0;
-    cursor: pointer;
-    background-color: white;
+    background-color: transparent;
     margin-right: 31px;
   }
 }
 @media screen and (max-width: 320px) {
-  .menu__button {
+  .header__burger-menu {
     width: 40px;
     height: 43px;
     margin-right: 15px;

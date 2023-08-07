@@ -4,9 +4,11 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu"
 import "./Header.css";
 import { NavLink , Link} from "react-router-dom";
 import accountIcon from "../../images/account_icon.svg";
+import { useLocation } from "react-router-dom";
 
 function Header({loggedIn}) {
-  const headerColorClass = (`header ${loggedIn ? 'header_loggedIn' : 'header'}`);
+  const location = useLocation();
+  const headerColorClass = (`header ${loggedIn && location.pathname !== "/"  ? 'header_loggedIn' : 'header'}`);
   const activeLinkClass = ({ isActive }) =>
     `link header__link ${isActive ? "header__link_active" : ""}`;
 
@@ -20,9 +22,9 @@ function Header({loggedIn}) {
     setIsClicked(false);
   }
   return (
-    <section className={headerColorClass}>
+    <header className={headerColorClass}>
       <NavLink to='/'>
-        <img className="header__logo" src={headerLogo} alt="Логотип" />
+        <img className="header__logo link" src={headerLogo} alt="Логотип" />
       </NavLink>
       <>
       {loggedIn ? (
@@ -46,7 +48,7 @@ function Header({loggedIn}) {
               alt="иконка аккаунта"
             ></img>
           </nav>
-          <button className="menu__button" onClick={handleOpen}></button>
+          <button className="header__burger-menu button" onClick={handleOpen}></button>
         </>
       ) : (
         <nav className="header__container">
@@ -65,7 +67,7 @@ function Header({loggedIn}) {
       {/* <BurgerMenu loggedIn={loggedIn}/>
       <Navigation loggedIn={loggedIn} /> */}
 {isClicked ? <BurgerMenu handleClose={handleClose} /> : ''}
-    </section>
+    </header>
   );
 }
 

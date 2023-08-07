@@ -8,11 +8,11 @@ function Movies({ loggedIn, cards }) {
   return (
     <>
       <Header loggedIn={loggedIn} />
-      <div className="movies">
+      <main className="movies">
         <SearchForm />
         <MoviesCardList cards={cards} />
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </>
   );
 }

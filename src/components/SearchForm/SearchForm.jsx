@@ -13,7 +13,7 @@ function SearchForm() {
           maxLength="40"
           required
         ></input>
-        <button className="searchForm__button" type="submit">
+        <button className="searchForm__button button" type="submit">
           Найти
         </button>
         <FilterCheckbox />
