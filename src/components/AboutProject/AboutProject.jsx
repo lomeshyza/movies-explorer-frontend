@@ -26,14 +26,15 @@ function AboutProject() {
           </p>
         </div>
       </div>
-      <div className="about-project__timeline-container">
-          <div className="about-project__fill_short about-project__timeline-text">
+      <div className="timeline">
+          <div className="timeline__fill_short timeline__text">
             1 неделя
           </div>
-          <p className="about-project__undertext_short about-project__timeline-text">Back-end</p>
-          <div className="about-project__fill_long about-project__timeline-text">4 недели
+          <p className="timeline__undertext_short timeline__text">Back-end</p>
+          <div className="timeline__fill_long timeline__text">
+            4 недели
          </div>
-          <p className="about-project__undertext_long about-project__timeline-text">Front-end</p>
+          <p className="timeline__undertext_long timeline__text">Front-end</p>
       </div>
     </section>
   );
