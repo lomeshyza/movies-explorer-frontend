@@ -1,0 +1,19 @@
+.landing {
+    width: 100%;
+    padding-top: 110px;
+    padding-bottom: 100px;
+    /* border: 1px solid red; */
+  }
+
+  @media screen and (max-width: 768px) {
+    .landing{
+      padding-top: 90px;
+      padding-bottom: 14px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .landing{
+    padding:70px 0px;
+    max-width: 100%;
+}
+}
