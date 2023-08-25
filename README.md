@@ -11,3 +11,5 @@
 [Frontend](https://starts.movies.nomoredomains.xyz)
 
 [API](https://api.starts.movies.nomoredomains.xyz)
+
+[Pull request](https://github.com/lomeshyza/movies-explorer-frontend/pull/4)
