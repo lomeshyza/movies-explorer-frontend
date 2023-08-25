@@ -44,13 +44,13 @@ function MoviesCardList({movies, isLoading, onCardDelete, onCardSave, savedMovie
       window.addEventListener('resize', shownCount);
     }, 300);
   });
-/* console.log(requestError)
-console.log(isLoading)
-console.log(notFound)
-console.log(searchOk)
-console.log(noQuery)
-console.log(`это shownMovies ${JSON.stringify(shownMovies)}`)
-console.log(`это movies.length ${JSON.stringify(movies.length)}`) */
+console.log(`это requestError ${JSON.stringify(requestError)}`)
+console.log(`это isLoading ${JSON.stringify(isLoading)}`)
+console.log(`это notFound ${JSON.stringify(notFound)}`)
+console.log(`это searchOk ${JSON.stringify(searchOk)}`)
+console.log(`это noQuery ${JSON.stringify(noQuery)}`)
+//console.log(`это shownMovies ${JSON.stringify(shownMovies)}`)
+//console.log(`это movies.length ${JSON.stringify(movies.length)}`)
   return (
     
     <div className="moviesCardList">

@@ -11,13 +11,13 @@ function SavedMovies({
   loggedIn, onCardDelete,  onCardSave, savedMovies, isLoadingSaved, requestErrorSaved
 }) {
   //console.log(`savedMovies: ${JSON.stringify(savedMovies)}`);
- //const [allMoviesSaved, setAllMoviesSaved] = useState(savedMovies);
-  const [filteredMoviesSaved, setFilteredMoviesSaved] = useState(savedMovies);
+  //const [allMoviesSaved, setAllMoviesSaved] = useState(savedMovies);
+  //const [isLoadingSaved, setisLoadingSaved] = useState(false);
   //const [requestErrorSaved, setRequestErrorSaved] = useState(false);
+  const [filteredMoviesSaved, setFilteredMoviesSaved] = useState(savedMovies);
   const [shortSaved, setShortSaved] = useState(false);
   const [querySaved, setQuerySaved] = useState("");
   const [noQuerySaved, setNoQuerySaved] = useState(false)
- // const [isLoadingSaved, setisLoadingSaved] = useState(false);
   const [errorMessage, setErrorMessage]=useState('');
 
 // Чекбокс

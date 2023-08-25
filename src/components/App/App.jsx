@@ -3,7 +3,6 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {
   Routes,
   Route,
-  Navigate,
   useNavigate,
   useLocation,
 } from "react-router-dom";
@@ -35,6 +34,7 @@ function App() {
   const [errorMessage, setErrorMessage]=useState('');
   //const [registrationStatus, setRegistrationStatus] = useState(false);
   //const [requestError, setRequestError] = useState(false);
+
   useEffect(() => {
     setIsLoading(true);
     Promise.all([
@@ -59,20 +59,6 @@ function App() {
       });
   }, [loggedIn]);
 
-  useEffect(() => {
-    setIsLoading(true);
-    mainApi
-      .getMovies()
-      .then((savedMovies) => {
-        setSavedMovies(savedMovies.reverse());
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
 
   function handleTokenCheck() {
     const jwt = localStorage.getItem("jwt");
@@ -88,6 +74,7 @@ function App() {
   }
   useEffect(() => {
     handleTokenCheck();
+    navigate(path);
   }, []);
 
   useEffect(() => {
@@ -145,13 +132,11 @@ function App() {
           setErrorMessage('На сервере произошла ошибка.')
         }
         console.log(err);
-       // setRegistrationStatus(false);
       });
   }
   function handleLogout() {
     localStorage.removeItem("jwt");
     localStorage.clear();
-    /* console.log(`Это localStoragehandleLogout: ${JSON.stringify(localStorage)}`); */
     setLoggedIn(false);
     navigate("/");
   }
@@ -190,6 +175,7 @@ function App() {
       });
   }
   function handleCardSave(movie) {
+    setIsLoading(true);
     console.log(movie)
     mainApi
       .saveCard(movie)
@@ -198,6 +184,9 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -244,7 +233,6 @@ function App() {
             path="/movies"
             element={
               <ProtectedRoute
-              //<Movies
                 element={Movies}
                 loggedIn={loggedIn}
                 onCardSave={handleCardSave}
