@@ -60,6 +60,7 @@ function Movies({ loggedIn, onCardDelete, savedMovies, onCardSave }) {
         .catch((err) => {
           setRequestError(true);
           console.log(err);
+          setIsLoading(false);
         });
     } else {
       handleFiltering(allMovies,query,short);

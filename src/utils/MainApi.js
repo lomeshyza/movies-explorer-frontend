@@ -32,7 +32,9 @@ export class MainApi {
       }
       // Movies
       getMovies() {
+        console.log(`${this.baseUrl}/movies`)
         return fetch(`${this.baseUrl}/movies`, {
+         
           method: "GET",
           headers: this.headers,
         }).then(this._handleResponse);

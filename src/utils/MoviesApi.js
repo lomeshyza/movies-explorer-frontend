@@ -3,7 +3,6 @@ export class MoviesApi {
       this.baseUrl = baseUrl;
       this.headers = headers;
     }
-    
     //приходит ли ответ с сервера
   _handleResponse(res) {
     if (res.ok) {
@@ -14,19 +13,17 @@ export class MoviesApi {
 }
       // Movies
       getMovies() {
-        
-        return fetch(`${this.baseUrl}`, {
+        return fetch(`${this.baseUrl}/beatfilm-movies`, {
           method: "GET",
           headers: this.headers,
         }).then(this._handleResponse);
-      }
-     
+      } 
 }
 const moviesApi = new MoviesApi({
-    baseUrl: "https://api.nomoreparties.co/beatfilm-movies",
+    baseUrl: "https://api.nomoreparties.co",
     // baseUrl: "http://localhost:3000",
     headers: {
-      authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      //authorization: `Bearer ${localStorage.getItem('jwt')}`,
       "Content-Type": "application/json",
     },
   });
