@@ -10,6 +10,8 @@
   flex-direction: column;
   justify-content: space-between;
   height: 70%;
+  width: 90%;
+  max-width: 410px;
 
  /*  max-width: 410px;
   margin: 0 auto;
@@ -21,8 +23,42 @@
     /* max-width: 265px;
     padding: 0; */
     height: 68%;
-    width: 100%;
+    max-width: 80%;
   }
+}
+.profile__error{
+  width: 100%;
+  color: #FF004C;
+  text-align: end;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height:14px;
+  display:block;
+}
+.profile__button-save{
+  width: 100%;
+height: 45px;
+border-radius: 3px;
+background: #3456F3;
+color: #FFF;
+text-align: center;
+border:none;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+margin: 0 auto;
+}
+.profile__button-save_inactive{
+  color: #C2C2C2;
+  text-align: center;
+  border:none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+background: #F8F8F8;
 }
 .profile__button {
   color: #000;
@@ -31,27 +67,18 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  width: 420px;
+  width: 100%;
   border: none;
   background-color: white;
+  margin: 0 auto;
 }
-@media screen and (max-width: 425px) {
-  .profile__button {
-    width: 320px;
-  }
-}
-@media screen and (max-width: 425px) {
-  .profile__button {
-    width: 275px;
-    /* margin-top: 341px; */
-  }
-}
+
 .profile__form-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: solid 1px #e8e8e8;
-  margin-bottom: 17px;
+  margin-bottom: 3px;
   padding-bottom: 16px;
 }
 
@@ -113,17 +140,16 @@
 }
 @media screen and (max-width: 786px) {
   .profile__form {
-    min-height: 150px;
+    min-height: 330px;
     height: calc(100vh - 735px);
   }
 }
 @media screen and (max-width: 320px) {
   .profile__form {
     height: calc(100vh - 325px);
-    
   }
 }
-.profile__form-link {
+.profile__form-button {
   color: #ee3465;
   font-size: 13px;
   font-weight: 500;
@@ -131,5 +157,6 @@
   display: flex;
   justify-content: center;
   margin-top: 16px;
+  border: none;
+ 
 }
-

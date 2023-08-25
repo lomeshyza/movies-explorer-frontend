@@ -1,62 +1,103 @@
+import React, { useContext, useEffect, useState} from 'react'
 import "../Profile/Profile.css";
 import Header from "../Header/Header";
-
-import { Link } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import {useFormAndValidation} from '../../hooks/useFormAndValidation';
+import {REGEX_EMAIL, REGEX_NAME} from "../../utils/constants";
 
 function Profile({
-  formTitle,
   buttonTitle,
-  formLink,
+  onUpdateUser,
   formLinkText,
   onLogout,
   loggedIn,
+  errorMessage
 }) {
+  const currentUser = useContext(CurrentUserContext);
+ const{values, handleChange, errors, isValid, resetForm} = useFormAndValidation();
+ const [isNewValues, setIsNewValues] = useState(false);
+
+
+  useEffect(() => {
+    if (currentUser) {
+      resetForm(currentUser);
+    }
+  }, [currentUser, resetForm]);
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    const { name, email } = values;
+    onUpdateUser({name, email});
+  };
+  useEffect(() => {
+    if (currentUser.name === values.name && currentUser.email === values.email) {
+      setIsNewValues(true);
+    } else {
+      setIsNewValues(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [values]);
+
   return (
     <>
       <Header loggedIn={loggedIn} />
       <div className="profile">
         <div className="profile__container">
-          <h2 className="profile__header">{formTitle}</h2>
-          <form type="submit" className="profile__form">
+          <h2 className="profile__header">{`Привет, ${currentUser.name}!`}</h2>
+          <form type="submit" className="profile__form" onSubmit={handleSubmit}>
             <fieldset className="profile__fieldset">
               <div className="profile__form-container">
                 <label className="profile__field-name">Имя</label>
                 <input
+                  name='name'
                   className="profile__input"
                   placeholder="Имя"
-                  value="Виталий"
+                  value={values.name || ''}
                   type="text"
                   minLength="2"
                   maxLength="30"
+                  pattern={REGEX_NAME}
                   required
+                  onChange={handleChange}
                 ></input>
+                
               </div>
-
+              <span className='profile__error'>{errors.name}</span>
               <div className="profile__form-container">
                 <label className="profile__field-name">E-mail</label>
                 <input
+                  name='email'
                   className="profile__input"
                   placeholder="E-mail"
-                  value="mail@yandex.ru"
+                  value={values.email || ''}
                   type="email"
                   minLength="2"
                   maxLength="30"
+                  pattern={REGEX_EMAIL}
                   required
+                  onChange={handleChange}
                 ></input>
+              
               </div>
+              <span className='profile__error'>{errors.email}</span>
             </fieldset>
-
+            
+            <p className="form__submit-error">{errorMessage}</p>
+            <button className={
+              isNewValues? ' button__none' : 
+              !isValid ? "profile__button-save profile__button-save_inactive button"
+              : "profile__button-save button"} 
+              disabled={!isValid ? true : false}>Сохранить</button>
             <button
-              className="button profile__button"
+              className={!isNewValues? 'button__none ' : "button profile__button"}
               type="submit"
-              onClick={onLogout}
             >
               {buttonTitle}
             </button>
           </form>
-          <Link className="profile__form-link link" to={formLink}>
+          <button className={!isNewValues? 'button__none ' : "profile__form-button button"} onClick={onLogout}>
             {formLinkText}
-          </Link>
+          </button>
         </div>
       </div>
     </>

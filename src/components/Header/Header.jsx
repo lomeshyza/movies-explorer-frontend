@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 
 function Header({loggedIn}) {
   const location = useLocation();
+  console.log(loggedIn);
   const headerColorClass = (`header ${loggedIn && location.pathname !== "/"  ? 'header_loggedIn' : 'header'}`);
   const activeLinkClass = ({ isActive }) =>
     `link header__link ${isActive ? "header__link_active" : ""}`;
@@ -21,9 +22,11 @@ function Header({loggedIn}) {
   function handleClose() {
     setIsClicked(false);
   }
+  
+
   return (
     <header className={headerColorClass}>
-      <NavLink to='/'>
+      <NavLink to='/' >
         <img className="header__logo link" src={headerLogo} alt="Логотип" />
       </NavLink>
       <>
@@ -56,7 +59,7 @@ function Header({loggedIn}) {
             Регистрация
           </Link>
           <Link
-            to="/signin"
+            to="/signin" 
             className="header__button header__button-active link"
           >
             Войти

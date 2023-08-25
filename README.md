@@ -6,6 +6,8 @@
 
 ## Ссылки на проект
 
-Frontend [Макет проекта в Figma](https://disk.yandex.ru/d/SWUBP5Z-64AxNg)
+[Макет проекта в Figma](https://disk.yandex.ru/d/SWUBP5Z-64AxNg)
 
-Backend https://api.starts.movies.nomoredomains.xyz
+[Frontend](https://starts.movies.nomoredomains.xyz)
+
+[API](https://api.starts.movies.nomoredomains.xyz)
