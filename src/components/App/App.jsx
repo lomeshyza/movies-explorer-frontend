@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import {
-  Routes,
-  Route,
-  useNavigate,
-  useLocation,
-} from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import "../App/App.css";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
@@ -14,10 +9,8 @@ import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
 import * as Auth from "../../utils/Auth";
 import { mainApi } from "../../utils/MainApi";
-//import { moviesApi } from "../../utils/MoviesApi";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import NotFound from "../NotFound/NotFound";
-
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function App() {
@@ -27,29 +20,21 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  //const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  //const [selectedCard, setSelectedCard] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
-  const [errorMessage, setErrorMessage]=useState('');
-  //const [registrationStatus, setRegistrationStatus] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
-    Promise.all([
-      mainApi.getUserInfo(),
-      mainApi.getMovies(),
-    ])
-      .then(([profileInfo, savedMovies
-      ]) => {
+    Promise.all([mainApi.getUserInfo(), mainApi.getMovies()])
+      .then(([profileInfo, savedMovies]) => {
         setCurrentUser(profileInfo);
         setSavedMovies(savedMovies);
         setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        //err.includes(401)?navigate("/"):setIsLoading(false);
       })
       .finally(() => {
         setIsLoading(false);
@@ -64,7 +49,7 @@ function App() {
           setCurrentUser(data);
           setLoggedIn(true);
         })
-        .catch((err) => console.log(err))
+        .catch((err) => console.log(err));
     }
   }
   useEffect(() => {
@@ -73,37 +58,35 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setErrorMessage('');
-    setSuccessMessage('')
+    setErrorMessage("");
+    setSuccessMessage("");
     handleTokenCheck();
-    console.log(path)
+    console.log(path);
   }, [path]);
 
   function handleRegister(name, email, password) {
-    setErrorMessage('');
+    setErrorMessage("");
     setIsLoading(true);
-
     Auth.register(name, email, password)
       .then(() => {
         handleLogin(email, password);
-        navigate('/movies');
+        navigate("/movies");
       })
       .catch((err) => {
-        if(err.includes('409')){
-          setErrorMessage('Пользователь с таким email уже существует.')
-        }else{
+        if (err.includes("409")) {
+          setErrorMessage("Пользователь с таким email уже существует.");
+        } else {
           console.log(err);
-          setErrorMessage('При регистрации пользователя произошла ошибка.')
+          setErrorMessage("При регистрации пользователя произошла ошибка.");
         }
         console.log(err);
       })
       .finally(() => {
         setIsLoading(false);
-        
       });
   }
   function handleLogin(email, password) {
-    setErrorMessage('');
+    setErrorMessage("");
     Auth.login(email, password)
       .then((data) => {
         console.log(data);
@@ -116,14 +99,18 @@ function App() {
         }
       })
       .catch((err) => {
-        if(err.includes('401')){
-          setErrorMessage('Вы ввели неправильный логин или пароль.')
-        }else if (err.includes('400')) {
-          setErrorMessage('При авторизации произошла ошибка. Токен не передан или передан не в том формате.')
-        } else if(err.includes('403')){
-          setErrorMessage('При авторизации произошла ошибка. Переданный токен некорректен.')
-        }else{
-          setErrorMessage('На сервере произошла ошибка.')
+        if (err.includes("401")) {
+          setErrorMessage("Вы ввели неправильный логин или пароль.");
+        } else if (err.includes("400")) {
+          setErrorMessage(
+            "При авторизации произошла ошибка. Токен не передан или передан не в том формате."
+          );
+        } else if (err.includes("403")) {
+          setErrorMessage(
+            "При авторизации произошла ошибка. Переданный токен некорректен."
+          );
+        } else {
+          setErrorMessage("На сервере произошла ошибка.");
         }
         console.log(err);
       });
@@ -135,29 +122,26 @@ function App() {
     navigate("/");
   }
   function handleUpdateUser(data) {
-        setErrorMessage('');
-        setSuccessMessage('')  
+    setErrorMessage("");
+    setSuccessMessage("");
     mainApi
       .updateUserInfo(data)
       .then((value) => {
-        setErrorMessage('Изменения сохранены.')
+        setErrorMessage("Изменения сохранены.");
         setCurrentUser(value);
       })
       .catch((err) => {
-        if(err.includes('409')){
-          setErrorMessage('Пользователь с таким email уже существует.')
-        } else{
-          setErrorMessage('При обновлении профиля произошла ошибка.')
+        if (err.includes("409")) {
+          setErrorMessage("Пользователь с таким email уже существует.");
+        } else {
+          setErrorMessage("При обновлении профиля произошла ошибка.");
         }
         console.log(err);
       })
-      .finally(() => {
-        
-
-      });
+      .finally(() => {});
   }
   function handleCardDelete(card) {
-    console.log(card)
+    console.log(card);
     setIsLoading(true);
     mainApi
       .deleteMovie(card._id)
@@ -167,7 +151,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-        setErrorMessage('На сервере произошла ошибка.')
+        setErrorMessage("На сервере произошла ошибка.");
       })
       .finally(() => {
         setIsLoading(false);
@@ -175,10 +159,10 @@ function App() {
   }
   function handleCardSave(movie) {
     setIsLoading(true);
-    console.log(movie)
+    console.log(movie);
     mainApi
       .saveCard(movie)
-      .then ((newMovie) => {
+      .then((newMovie) => {
         setSavedMovies([newMovie, ...savedMovies]);
       })
       .catch((err) => {
@@ -205,10 +189,7 @@ function App() {
           <Route
             path="/signin"
             element={
-              <Login 
-              onLogin={handleLogin}
-              errorMessage={errorMessage}
-              />
+              <Login onLogin={handleLogin} errorMessage={errorMessage} />
             }
           />
           <Route path="/" element={<Main loggedIn={loggedIn} />} />
@@ -256,11 +237,7 @@ function App() {
               />
             }
           />
-          {/* <Route path="/notfound" element={<NotFound />} /> */}
-          <Route
-            path="*"
-            element={<NotFound />}
-          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </CurrentUserContext.Provider>

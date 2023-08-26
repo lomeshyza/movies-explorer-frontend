@@ -4,127 +4,106 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Footer from "../Footer/Footer";
 import React, { useState, useEffect } from "react";
-//import { mainApi } from "../../utils/MainApi";
-import {SHORT} from '../../utils/constants';
+import { SHORT } from "../../utils/constants";
 
 function SavedMovies({
-  loggedIn, onCardDelete,  onCardSave, savedMovies, isLoading, requestError
+  loggedIn,
+  onCardDelete,
+  onCardSave,
+  savedMovies,
+  isLoading,
+  requestError,
 }) {
-  //console.log(`savedMovies: ${JSON.stringify(savedMovies)}`);
-  //const [allMoviesSaved, setAllMoviesSaved] = useState(savedMovies);
-  //const [isLoadingSaved, setisLoadingSaved] = useState(false);
-  const [notFound, setNotFound] = useState(false)
+  const [notFound, setNotFound] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState(savedMovies);
   const [short, setShort] = useState(false);
   const [query, setQuery] = useState("");
-  const [noQuery, setNoQuery] = useState(false)
-  const [errorMessage, setErrorMessage]=useState('');
+  const [noQuery, setNoQuery] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [submit, setSubmit] = useState(false);
-// Чекбокс
-function handleCheckboxChange(short) {
-  setShort(short);
-}
-// Запрос
-function handleSearch(query) {
-  setQuery(query);
-  if(query.length===0){setNoQuery(true);
-    console.log(noQuery);
-    } else{
-      setNoQuery(false);
-    }
-}
-// submit
-function handleSearchMovies(query){
-  setQuery(query);
-  handleFiltering(savedMovies,query,short);
+  // Чекбокс
+  function handleCheckboxChange(short) {
+    setShort(short);
   }
-
-//фильтр
-function handleFiltering(movies,query,short) {
-  setFilteredMovies(movies.filter((movie) => {
-     const searchedName =
-       movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
-       movie.nameEN.toLowerCase().includes(query.toLowerCase());
-     console.log(`short: ${short}`);
-     return short ? searchedName && movie.duration <= SHORT : searchedName;
-   }))
-}
-useEffect(() => {
-  localStorage.setItem("filteredMovies", JSON.stringify(filteredMovies));
-  if (!query&&submit) {
-    setNoQuery(true);
-    setNotFound(false);
-  } else{
-    if (filteredMovies.length === 0) {
-      setNoQuery(false);
-      setNotFound(true);
+  // Запрос
+  function handleSearch(query) {
+    setQuery(query);
+    if (query.length === 0) {
+      setNoQuery(true);
+      console.log(noQuery);
     } else {
       setNoQuery(false);
-      setNotFound(false);
     }
-  } 
-}, [filteredMovies]);
+  }
+  // submit
+  function handleSearchMovies(query) {
+    setQuery(query);
+    handleFiltering(savedMovies, query, short);
+  }
 
-useEffect(() =>{
-  handleFiltering(savedMovies,query,short);
-  
-},[savedMovies, query,short])
+  //фильтр
+  function handleFiltering(movies, query, short) {
+    setFilteredMovies(
+      movies.filter((movie) => {
+        const searchedName =
+          movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
+          movie.nameEN.toLowerCase().includes(query.toLowerCase());
+        console.log(`short: ${short}`);
+        return short ? searchedName && movie.duration <= SHORT : searchedName;
+      })
+    );
+  }
+  useEffect(() => {
+    localStorage.setItem("filteredMovies", JSON.stringify(filteredMovies));
+    if (!query && submit) {
+      setNoQuery(true);
+      setNotFound(false);
+    } else {
+      if (filteredMovies.length === 0) {
+        setNoQuery(false);
+        setNotFound(true);
+      } else {
+        setNoQuery(false);
+        setNotFound(false);
+      }
+    }
+  }, [filteredMovies]);
 
-/* useEffect(() => {
-  setIsLoadingSaved(true);
-mainApi
-  .getMovies()
-    .then((cardsData) => {
-    
-      setAllMoviesSaved(cardsData);
-      //setFilteredMoviesSaved(cardsData)
-     handleFiltering(cardsData,querySaved,shortSaved);
-      setRequestErrorSaved(false);
-    })
-    .catch((err) => {
-      setRequestErrorSaved(true);
-      console.log(err);
-    })
-    .finally(() => {
-      setIsLoadingSaved(false);
-    });
-}, []); */
-/* useEffect(() => {
-  const moviesList = handleFiltering(savedMovies, querySaved,shortSaved);
-  setFilteredMoviesSaved(moviesList);
-}, [savedMovies, shortSaved]); */
+  useEffect(() => {
+    handleFiltering(savedMovies, query, short);
+  }, [savedMovies, query, short]);
 
   return (
     <>
       <Header loggedIn={loggedIn} />
       <main className="savedMovies">
         <SearchForm
-         short={short}
-         query={query}
-         onSearch={handleSearch}
-         onCheck={handleCheckboxChange}
-         onSearchMovies={handleSearchMovies}
-         requestError={requestError}
-         errorMessage={errorMessage}
+          short={short}
+          query={query}
+          onSearch={handleSearch}
+          onCheck={handleCheckboxChange}
+          onSearchMovies={handleSearchMovies}
+          requestError={requestError}
+          errorMessage={errorMessage}
           setErrorMessage={setErrorMessage}
           setSubmit={setSubmit}
         />
-        { !requestError
-        ? ( 
+        {!requestError ? (
           <MoviesCardList
-          movies={filteredMovies}
-          onCardDelete={onCardDelete}
-          onCardSave={onCardSave}
-          isLoading={isLoading}
-          savedMovies={savedMovies}
-          isSaved={true}
-          notFound={notFound}
-          requestError={requestError}
-          
-          noQuery={noQuery}
-          submit={submit}
+            movies={filteredMovies}
+            onCardDelete={onCardDelete}
+            onCardSave={onCardSave}
+            isLoading={isLoading}
+            savedMovies={savedMovies}
+            isSaved={true}
+            notFound={notFound}
+            requestError={requestError}
+            noQuery={noQuery}
+            submit={submit}
           />
-       ) : ''}
+        ) : (
+          ""
+        )}
       </main>
       <Footer />
     </>

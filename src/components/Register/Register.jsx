@@ -1,24 +1,22 @@
 import "./Register.css";
 import FormElement from "../FormElement/FormElement";
 import React from "react";
-import {REGEX_EMAIL,REGEX_NAME} from '../../utils/constants'
-import {useFormAndValidation} from '../../hooks/useFormAndValidation';
+import { REGEX_EMAIL, REGEX_NAME } from "../../utils/constants";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
+function Register({ onRegister, errorMessage }) {
+  const { values, handleChange, isValid, errors, resetForm } =
+    useFormAndValidation();
 
-function Register({onRegister, errorMessage}) {
-  
-  const{values, handleChange, isValid,errors,resetForm} = useFormAndValidation();
-
-  
-const handleSubmit=(evt)=>{
-  evt.preventDefault();
-  evt.stopPropagation()
-  if(isValid){
-    const {name, email, password}=values;
-    onRegister(name, email, password);
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    if (isValid) {
+      const { name, email, password } = values;
+      onRegister(name, email, password);
     }
     resetForm();
-}
+  };
   return (
     <FormElement
       formTitle="Добро пожаловать!"
@@ -33,7 +31,7 @@ const handleSubmit=(evt)=>{
       <label className="form__field-name">
         Имя
         <input
-          name='name'
+          name="name"
           className="form__input"
           placeholder="Имя"
           type="text"
@@ -48,22 +46,23 @@ const handleSubmit=(evt)=>{
       <label className="form__field-name">
         E-mail
         <input
-        name='email'
+          name="email"
           className="form__input"
           placeholder="E-mail"
           type="email"
           required
           pattern={REGEX_EMAIL}
           onChange={handleChange}
-          
         ></input>
         <span className="form__input-error">{errors.email}</span>
       </label>
       <label className="form__field-name">
         Пароль
         <input
-        name='password'
-          className={errorMessage? "form__input form__input-invalid": 'form__input'}
+          name="password"
+          className={
+            errorMessage ? "form__input form__input-invalid" : "form__input"
+          }
           placeholder="Пароль"
           type="password"
           minLength="6"
@@ -73,7 +72,6 @@ const handleSubmit=(evt)=>{
         ></input>
         <span className="form__input-error">{errors.password}</span>
       </label>
-      
     </FormElement>
   );
 }

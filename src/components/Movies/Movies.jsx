@@ -41,12 +41,10 @@ function Movies({ loggedIn, onCardDelete, savedMovies, onCardSave }) {
     });
     console.log(moviesToShow);
     setFilteredMovies(moviesToShow);
-    
   }
   // submit поиска
   function handleSearchMovies(query) {
     localStorage.setItem("query", query);
-    
 
     if (allMovies.length === 0 && query.length !== 0) {
       setIsLoading(true);
@@ -69,10 +67,9 @@ function Movies({ loggedIn, onCardDelete, savedMovies, onCardSave }) {
       setRequestError(false);
     }
   }
-  
+
   // отрисовка до поиска
   useEffect(() => {
-   
     const prevSearchedMovies = localStorage.getItem("filteredMovies");
     const prevQuery = localStorage.getItem("query");
     if (JSON.parse(prevSearchedMovies) > 0 && prevQuery) {
@@ -89,7 +86,7 @@ function Movies({ loggedIn, onCardDelete, savedMovies, onCardSave }) {
     if (!query) {
       setNoQuery(true);
       setNotFound(false);
-    } else{
+    } else {
       if (filteredMovies.length === 0) {
         setNoQuery(false);
         setNotFound(true);
@@ -97,7 +94,7 @@ function Movies({ loggedIn, onCardDelete, savedMovies, onCardSave }) {
         setNoQuery(false);
         setNotFound(false);
       }
-    } 
+    }
   }, [filteredMovies]);
   return (
     <>
@@ -124,7 +121,6 @@ function Movies({ loggedIn, onCardDelete, savedMovies, onCardSave }) {
             isSaved={false}
             notFound={notFound}
             requestError={requestError}
-            
             noQuery={noQuery}
             submit={submit}
           />

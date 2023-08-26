@@ -13,7 +13,6 @@ console.log(`это short FilterCheckbox ${short}`)
         onChange={onCheckboxChange}
         checked={short}
         novalidate
-       //defaultChecked={localStorage.getItem('shortMovies') || false}
         >
       </input>
       <span className="filter__text">Короткометражки</span>
