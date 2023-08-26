@@ -11,11 +11,12 @@ function Profile({
   formLinkText,
   onLogout,
   loggedIn,
-  errorMessage
+  errorMessage,successMessage
 }) {
   const currentUser = useContext(CurrentUserContext);
  const{values, handleChange, errors, isValid, resetForm} = useFormAndValidation();
  const [isNewValues, setIsNewValues] = useState(false);
+ const [isSuccess, setIsSuccess] = useState(false);
 
 
   useEffect(() => {
@@ -82,14 +83,15 @@ function Profile({
               <span className='profile__error'>{errors.email}</span>
             </fieldset>
             
-            <p className="form__submit-error">{errorMessage}</p>
+            <p className="form__submit-error">{errorMessage||successMessage}</p>
             <button className={
               isNewValues? ' button__none' : 
               !isValid ? "profile__button-save profile__button-save_inactive button"
               : "profile__button-save button"} 
               disabled={!isValid ? true : false}>Сохранить</button>
             <button
-              className={!isNewValues? 'button__none ' : "button profile__button"}
+              className={!isNewValues ? 'button__none ' : "button profile__button"}
+              disabled={true}
               type="submit"
             >
               {buttonTitle}

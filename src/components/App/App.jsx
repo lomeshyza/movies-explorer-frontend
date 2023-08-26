@@ -33,39 +33,34 @@ function App() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [errorMessage, setErrorMessage]=useState('');
   //const [registrationStatus, setRegistrationStatus] = useState(false);
-  //const [requestError, setRequestError] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   useEffect(() => {
     setIsLoading(true);
     Promise.all([
       mainApi.getUserInfo(),
       mainApi.getMovies(),
-     // moviesApi.getMovies(),
     ])
       .then(([profileInfo, savedMovies
-       // , movies
       ]) => {
         setCurrentUser(profileInfo);
         setSavedMovies(savedMovies);
-       // setMovies(movies);
-       setIsLoading(false);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        setIsLoading(false);
+        //err.includes(401)?navigate("/"):setIsLoading(false);
       })
       .finally(() => {
         setIsLoading(false);
       });
   }, [loggedIn]);
 
-
   function handleTokenCheck() {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       Auth.checkToken(jwt)
         .then((data) => {
-          console.log(data)
           setCurrentUser(data);
           setLoggedIn(true);
         })
@@ -78,7 +73,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setErrorMessage('')
+    setErrorMessage('');
+    setSuccessMessage('')
+    handleTokenCheck();
     console.log(path)
   }, [path]);
 
@@ -89,12 +86,9 @@ function App() {
     Auth.register(name, email, password)
       .then(() => {
         handleLogin(email, password);
-        //setRegistrationStatus(true);
-        
         navigate('/movies');
       })
       .catch((err) => {
-        //setRegistrationStatus(false);
         if(err.includes('409')){
           setErrorMessage('Пользователь с таким email уже существует.')
         }else{
@@ -141,10 +135,12 @@ function App() {
     navigate("/");
   }
   function handleUpdateUser(data) {
-    setErrorMessage('');  
+        setErrorMessage('');
+        setSuccessMessage('')  
     mainApi
       .updateUserInfo(data)
       .then((value) => {
+        setErrorMessage('Изменения сохранены.')
         setCurrentUser(value);
       })
       .catch((err) => {
@@ -155,7 +151,10 @@ function App() {
         }
         console.log(err);
       })
-      .finally(() => {});
+      .finally(() => {
+        
+
+      });
   }
   function handleCardDelete(card) {
     console.log(card)
@@ -226,6 +225,7 @@ function App() {
                 onLogout={handleLogout}
                 onUpdateUser={handleUpdateUser}
                 errorMessage={errorMessage}
+                successMessage={successMessage}
               />
             }
           />
@@ -251,8 +251,8 @@ function App() {
                 onCardDelete={handleCardDelete}
                 onCardSave={handleCardSave}
                 savedMovies={savedMovies}
-                isLoadingSaved={isLoading}
-                requestErrorSaved={errorMessage}
+                isLoading={isLoading}
+                requestError={errorMessage}
               />
             }
           />

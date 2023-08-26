@@ -8,53 +8,67 @@ import React, { useState, useEffect } from "react";
 import {SHORT} from '../../utils/constants';
 
 function SavedMovies({
-  loggedIn, onCardDelete,  onCardSave, savedMovies, isLoadingSaved, requestErrorSaved
+  loggedIn, onCardDelete,  onCardSave, savedMovies, isLoading, requestError
 }) {
   //console.log(`savedMovies: ${JSON.stringify(savedMovies)}`);
   //const [allMoviesSaved, setAllMoviesSaved] = useState(savedMovies);
   //const [isLoadingSaved, setisLoadingSaved] = useState(false);
-  //const [requestErrorSaved, setRequestErrorSaved] = useState(false);
-  const [filteredMoviesSaved, setFilteredMoviesSaved] = useState(savedMovies);
-  const [shortSaved, setShortSaved] = useState(false);
-  const [querySaved, setQuerySaved] = useState("");
-  const [noQuerySaved, setNoQuerySaved] = useState(false)
+  const [notFound, setNotFound] = useState(false)
+  const [filteredMovies, setFilteredMovies] = useState(savedMovies);
+  const [short, setShort] = useState(false);
+  const [query, setQuery] = useState("");
+  const [noQuery, setNoQuery] = useState(false)
   const [errorMessage, setErrorMessage]=useState('');
-
+  const [submit, setSubmit] = useState(false);
 // Чекбокс
 function handleCheckboxChange(short) {
-  setShortSaved(short);
+  setShort(short);
 }
 // Запрос
 function handleSearch(query) {
-  setQuerySaved(query);
-  if(querySaved.length===0){setNoQuerySaved(true);
-    console.log(noQuerySaved);
-    } 
+  setQuery(query);
+  if(query.length===0){setNoQuery(true);
+    console.log(noQuery);
+    } else{
+      setNoQuery(false);
+    }
 }
 // submit
-function handleSearchMovies(querySaved){
-  setQuerySaved(querySaved);
-  handleFiltering(savedMovies,querySaved,shortSaved);
-  if(querySaved.length===0){
-    setErrorMessage('Нужно ввести ключевое слово');
-  }
+function handleSearchMovies(query){
+  setQuery(query);
+  handleFiltering(savedMovies,query,short);
   }
 
 //фильтр
 function handleFiltering(movies,query,short) {
-  setFilteredMoviesSaved(movies.filter((movie) => {
+  setFilteredMovies(movies.filter((movie) => {
      const searchedName =
        movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
        movie.nameEN.toLowerCase().includes(query.toLowerCase());
      console.log(`short: ${short}`);
-     return short ? searchedName && movie.duration <= {SHORT} : searchedName;
+     return short ? searchedName && movie.duration <= SHORT : searchedName;
    }))
 }
+useEffect(() => {
+  localStorage.setItem("filteredMovies", JSON.stringify(filteredMovies));
+  if (!query&&submit) {
+    setNoQuery(true);
+    setNotFound(false);
+  } else{
+    if (filteredMovies.length === 0) {
+      setNoQuery(false);
+      setNotFound(true);
+    } else {
+      setNoQuery(false);
+      setNotFound(false);
+    }
+  } 
+}, [filteredMovies]);
 
 useEffect(() =>{
-  handleFiltering(savedMovies,querySaved,shortSaved);
+  handleFiltering(savedMovies,query,short);
   
-},[savedMovies, querySaved,shortSaved])
+},[savedMovies, query,short])
 
 /* useEffect(() => {
   setIsLoadingSaved(true);
@@ -85,28 +99,30 @@ mainApi
       <Header loggedIn={loggedIn} />
       <main className="savedMovies">
         <SearchForm
-         short={shortSaved}
-         query={querySaved}
+         short={short}
+         query={query}
          onSearch={handleSearch}
          onCheck={handleCheckboxChange}
          onSearchMovies={handleSearchMovies}
-         requestError={requestErrorSaved}
+         requestError={requestError}
          errorMessage={errorMessage}
           setErrorMessage={setErrorMessage}
+          setSubmit={setSubmit}
         />
-        { filteredMoviesSaved && !requestErrorSaved
+        { !requestError
         ? ( 
           <MoviesCardList
-          movies={filteredMoviesSaved}
+          movies={filteredMovies}
           onCardDelete={onCardDelete}
           onCardSave={onCardSave}
-          isLoading={isLoadingSaved}
+          isLoading={isLoading}
           savedMovies={savedMovies}
           isSaved={true}
-          notFound={filteredMoviesSaved.length === 0}
-          requestError={requestErrorSaved}
-          searchOk={filteredMoviesSaved > 0}
-          noQuery={noQuerySaved}
+          notFound={notFound}
+          requestError={requestError}
+          
+          noQuery={noQuery}
+          submit={submit}
           />
        ) : ''}
       </main>

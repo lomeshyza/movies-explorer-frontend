@@ -6,7 +6,7 @@ import { useLocation} from "react-router-dom";
 import {SHOW_MORE_S,SHOW_MORE_M} from '../../utils/constants'
 
 function MoviesCardList({movies, isLoading, onCardDelete, onCardSave, savedMovies, isSaved, notFound, requestError,
- searchOk, noQuery
+ searchOk, noQuery,submit
 }) {
   const [shownMovies, setShownMovies] = useState(0);
   
@@ -19,9 +19,9 @@ function MoviesCardList({movies, isLoading, onCardDelete, onCardSave, savedMovie
   function handleLoadMore(){
     const screen = window.innerWidth;
     if (screen < 768) {
-      setShownMovies(shownMovies + {SHOW_MORE_S});
+      setShownMovies(shownMovies + SHOW_MORE_S);
     }   else if (screen > 768) {
-      setShownMovies(shownMovies + {SHOW_MORE_M});
+      setShownMovies(shownMovies + SHOW_MORE_M);
     }
   }
   
@@ -37,6 +37,7 @@ function MoviesCardList({movies, isLoading, onCardDelete, onCardSave, savedMovie
       }
   useEffect(() => {
       shownCount();
+      
   }, []);
 
   useEffect(() => {
@@ -44,6 +45,7 @@ function MoviesCardList({movies, isLoading, onCardDelete, onCardSave, savedMovie
       window.addEventListener('resize', shownCount);
     }, 300);
   });
+
 console.log(`это requestError ${JSON.stringify(requestError)}`)
 console.log(`это isLoading ${JSON.stringify(isLoading)}`)
 console.log(`это notFound ${JSON.stringify(notFound)}`)
@@ -55,9 +57,11 @@ console.log(`это noQuery ${JSON.stringify(noQuery)}`)
     
     <div className="moviesCardList">
       {isLoading &&  <Preloader />}
-      {notFound && !isLoading && searchOk&&
+      {!notFound && !isLoading && noQuery &&submit&&
+      <p className='moviesCardList__notFound'>Нужно ввести ключевое слово</p>}
+      {notFound && !isLoading && !noQuery &&
       <p className='moviesCardList__notFound'>Ничего не найдено</p>}
-      {requestError  && searchOk &&<p className='moviesCardList__error'>Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</p>}
+      {requestError  &&<p className='moviesCardList__error'>Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</p>}
       {!requestError && !isLoading && !notFound && !noQuery&&(
         <ul className="moviesCardList__list">
         {movies.slice(0,shownMovies).map((movie) => (

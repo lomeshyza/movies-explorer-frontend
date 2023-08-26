@@ -4,7 +4,7 @@ import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 //import {useFormAndValidation} from '../../hooks/useFormAndValidation'
 
 function SearchForm({  
- short,query,onSearch,onCheck,onSearchMovies,errorMessage, setErrorMessage
+ short,query,onSearch,onCheck,onSearchMovies,errorMessage, setErrorMessage,setSubmit
 }) {
   //const [isNoQuery, setIsNoQuery] = useState(false);
   //const [errorMessage, setErrorMessage]=useState('');
@@ -12,7 +12,7 @@ function SearchForm({
   function onChange(evt) {
 const val= evt.target.value;
 onSearch(val);
-
+setSubmit(false)
 //localStorage.setItem("query", value);
   }
   function onCheckboxChange(evt){
@@ -22,13 +22,8 @@ onSearch(val);
      }
   function handleSubmit(evt) {
     evt.preventDefault();
-    
+    setSubmit(true)
     onSearchMovies(query);
-    if(query.length===0){
-      setErrorMessage('Нужно ввести ключевое слово');
-    }else{
-      setErrorMessage(''); 
-    }
   }
   //console.log(`это short ${JSON.stringify(short)}`)
   //console.log(`это query ${JSON.stringify(query)}`)
@@ -53,7 +48,7 @@ onSearch(val);
         onCheckboxChange={onCheckboxChange}
         short={short}
          />
-        <p className='moviesCardList__noQuery'>{errorMessage}</p>
+        {/* <p className='moviesCardList__noQuery'>{errorMessage}</p> */}
       </form>
     </div>
   );

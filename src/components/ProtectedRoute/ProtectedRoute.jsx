@@ -1,9 +1,9 @@
 //HOC
 import React from "react";
-import { Navigate } from "react-router-dom";
+import Main from "../Main/Main";
 
 const ProtectedRoute = ({element: Component, ...props})=>{
-
-  return props.loggedIn ? <Component {...props} />: <Navigate to='/' replace={true}/>
+console.log(props.loggedIn)
+  return props.loggedIn ? <Component {...props} />: <Main loggedIn={props.loggedIn}/>
 }
 export default ProtectedRoute;
