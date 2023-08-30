@@ -39,16 +39,17 @@
     margin-top: 10px;
   }
 }
-.notFound__link {
+.notFound__button {
   margin-top: 190px;
   margin-bottom: 60px;
   color: #3456f3;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+  border:none;
 }
 @media screen and (max-width: 400px) {
-  .notFound__link {
+  .notFound__button {
     margin-bottom: 30px;
     font-size: 12px;
   }

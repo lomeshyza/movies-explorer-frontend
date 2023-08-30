@@ -51,7 +51,7 @@
   }
 }
 .form__button {
-  margin-top: 75px;
+  margin-top: 20px;
   margin-bottom: 16px;
   border-radius: 3px;
   background: #3456f3;
@@ -75,6 +75,7 @@
   font-weight: 400;
   line-height: normal;
   margin: 0;
+  margin-top:16px
 }
 @media screen and (max-width: 320px) {
   .form__text {
@@ -117,7 +118,7 @@
   line-height: normal;
   border: none;
   margin-top: 10px;
-  margin-bottom: 18px;
+  /* margin-bottom: 18px; */
   outline: none;
 }
 .form__input:focus{
@@ -130,10 +131,31 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  height:20px;
+
 }
 
 @media screen and (max-width: 320px) {
   .form__input-container {
     width: 100%;
   }
+}
+.button__inactive{
+  border-radius: 3px;
+background: #F8F8F8;
+color: #C2C2C2;
+}
+.form__submit-error{
+  margin:0;
+  margin-top:65px;
+  color: #FF004C;
+  text-align: center;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  
+}
+.form__input-invalid{
+  color: #ee3465;
 }

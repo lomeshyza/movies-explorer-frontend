@@ -14,7 +14,7 @@ function Navigation({ handleClose }) {
         <NavLink to="/" className={activeLinkClass}>
           Главная
         </NavLink>
-        <NavLink to="/movies" className={activeLinkClass}>
+        <NavLink to="/movies" replace className={activeLinkClass}>
           Фильмы
         </NavLink>
         <NavLink to="/saved-movies" className={activeLinkClass}>
