@@ -119,6 +119,7 @@
 .about__picture {
   max-width: 270px;
   min-height: 327px;
+  object-fit: contain;
   /* margin-top: 60px; */
 }
 @media screen and (max-width: 1024px) {
