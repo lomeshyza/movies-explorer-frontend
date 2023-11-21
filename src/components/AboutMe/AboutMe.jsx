@@ -1,5 +1,5 @@
 import "./AboutMe.css";
-import portfolioPic from "../../images/portfolio_pic.svg";
+import portfolioPic from "../../images/IMG_4794.jpg";
 import { Link } from "react-router-dom";
 
 function AboutMe() {
@@ -7,14 +7,14 @@ function AboutMe() {
     
       <section className="about">
         <div className="about__column">
-          <h3 className="about__name">Виталий</h3>
-          <h4 className="about__job">Фронтенд-разработчик, 30 лет</h4>
+          <h3 className="about__name">Надежда</h3>
+          <h4 className="about__job">Web-разработчик,</h4>
           <p className="about__paragraph">
-            Я родился и живу в Саратове, закончил факультет экономики СГУ. У
-            меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь
-            бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ
-            Контур». После того, как прошёл курс по веб-разработке, начал
-            заниматься фриланс-заказами и ушёл с постоянной работы.
+          как-то мне предложили заняться интернет-магазином на платформе WordPress, 
+          сейчас он неплохо работает, но там постоянно не хватает определенных функций, 
+          поэтому я решила изучить настоящую веб-разработку и сделать сайт самой. 
+          В данный момент активно изучаю материалы, видеолекции по frontend разработке, 
+          применяю полученные знания в своем пет-проекте.
           </p>
           <Link
             to="https://github.com/lomeshyza?tab=repositories"
